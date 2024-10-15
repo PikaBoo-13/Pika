@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Lyrics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        #lyrics-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow-y: auto;
+            height: 300px;
+        }
+        #play-pause-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>feleran</h1>
+    
+    <div id="lyrics-container">
+        <p>
+            Verse 1<br>
+            This is the first line of the song.<br>
+            And here's the second line of the song.<br>
+            Third line, and so on...
+        </p>
+    </div>
+
+    <button id="play-pause-button">Play</button>
+
+    <script>
+        const lyricsContainer = document.getElementById("lyrics-container");
+        const playPauseButton = document.getElementById("play-pause-button");
+        const lyrics = [
+            "Verse 1",
+            "This is the first line of the song.",
+            "And here's the second line of the song.",
+            "Third line, and so on..."
+        ];
+
+        let isPlaying = false;
+        let currentLine = 0;
+        let interval;
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                clearInterval(interval);
+                playPauseButton.textContent = "Play";
+            } else {
+                interval = setInterval(displayNextLine, 2000); // Display next line every 2 seconds (adjust as needed)
+                playPauseButton.textContent = "Pause";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function displayNextLine() {
+            if (currentLine < lyrics.length) {
+                lyricsContainer.innerHTML += "<br>" + lyrics[currentLine];
+                currentLine++;
+            } else {
+                clearInterval(interval);
+                playPauseButton.textContent = "Play";
+                isPlaying = false;
+            }
+        }
+
+        playPauseButton.addEventListener("click", togglePlayPause);
+    </script>
+</body>
+</html>

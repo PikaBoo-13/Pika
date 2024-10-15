@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=e">
+    <meta name="viewport" content="width=device-width">
+    <title>jam digital</tittle>
+</head>
+<body>
+
+    <div id="clock"></div>
+
+    <script>
+        setInterval(() => {
+            let date = new Date()
+            let clock = document.getElementById('clock')
+            clock
+
+        }
+
